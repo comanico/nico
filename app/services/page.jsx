@@ -15,7 +15,7 @@ const services = [
     num: "02",
     title: "Cloud Architecture",
     description:
-      "Designing and implementing scalable cloud solutions for businesses. From infrastructure setup to deployment, you're ensured that your applications runs smoothly in the cloud at a low cost.",
+      "Designing and implementing scalable cloud solutions for businesses. From infrastructure setup to deployment, you&apos;re ensured that your applications runs smoothly in the cloud at a low cost.",
     href: "/contact",
   },
   {
