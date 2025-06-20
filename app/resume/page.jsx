@@ -4,9 +4,10 @@ import {
   FaCss3,
   FaJs,
   FaReact,
-  FaFigma,
   FaNodeJs,
+  FaFileExcel,
 } from "react-icons/fa";
+import { DiAws, DiPython, DiDocker } from "react-icons/di";
 
 import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
@@ -14,23 +15,15 @@ import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 const about = {
   title: "About Me",
   description:
-    "I am a passionate web developer with a focus on creating dynamic and responsive web applications. I have experience in various technologies and frameworks, and I am always eager to learn more.",
+    "Even though I showcase my technical skills, my most valuable skill is my curiosity with the second being patience. Combining these two skills, I have been able to learn and adapt to any new challenge, which eventually brought you the skills highlighted on this page. Proudly born in Făgăraș, raised in Sibiu and Cluj-Napoca, lived in Munich and Montreal, this background helped me develop a global perspective that enhances my adaptability and problem-solving in diverse, fast-paced environments.",
   info: [
     {
       fieldName: "Name",
-      fieldValue: "Luke Coleman",
-    },
-    {
-      fieldName: "Phone",
-      fieldValue: "(+40) 123-456-789",
+      fieldValue: "Comaniciu Nicolae",
     },
     {
       fieldName: "Experience ",
-      fieldValue: "12+ years",
-    },
-    {
-      fieldName: "Skype",
-      fieldValue: "luke.01",
+      fieldValue: "5+ years",
     },
     {
       fieldName: "Nationality",
@@ -38,7 +31,7 @@ const about = {
     },
     {
       fieldName: "Email",
-      fieldValue: "luke.01@gmail.com",
+      fieldValue: "nico@comanico.biz",
     },
     {
       fieldName: "Freelance",
@@ -46,7 +39,7 @@ const about = {
     },
     {
       fieldName: "Languages",
-      fieldValue: "English, Spanish",
+      fieldValue: "Romanian, English, German, French",
     },
   ],
 };
@@ -56,77 +49,52 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "I have worked on various projects, ranging from small websites to large web applications. My experience includes both front-end and back-end development, and I have a strong understanding of the full web development stack.",
+    "With a background in electrical engineering, I bring a strong foundation in networking and a proven ability to tackle complex technical and financial challenges. My experience spans startups to top-tier firms like Morgan Stanley, where I delivered solutions ranging from optimized Excel-based financial models to scalable, containerized applications using modern DevOps practices. My diverse skill set and adaptability enable me to drive impactful results in dynamic, high-stakes environments.",
   items: [
     {
-      company: "Tech Solutions",
-      position: "Senior Web Developer",
+      company: "Future Workforce",
+      position: "RPA Business Analyst",
+      duration: "Summer 2018",
+    },
+    {
+      company: "Saico General Cables",
+      position: "Infratructure Engineer",
+      duration: "Summer 2019",
+    },
+    {
+      company: "mthree",
+      position: "Production Support Analyst",
+      duration: "2020 - 2022",
+    },
+    {
+      company: "Morgan Stanley",
+      position: "Reliability Production Engineer",
       duration: "2022 - Present",
-    },
-    {
-      company: "Web Design Studios",
-      position: "Full Stack Developer",
-      duration: "Summer 2021",
-    },
-    {
-      company: "E-commerce Inc.",
-      position: "Freelance Developer",
-      duration: "2020 - 2021",
-    },
-    {
-      company: "Tech Academy",
-      position: "Teaching Assistant",
-      duration: "2019 - 2020",
-    },
-    {
-      company: "Digital Agency",
-      position: "UI/UX Designer",
-      duration: "2018 - 2019",
-    },
-    {
-      company: "Software Solutions",
-      position: "Junior Developer",
-      duration: "2017 - 2018",
     },
   ],
 };
 
 // education data
 const education = {
-  icon: "/assets/resume/badge.svg",
+  icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "I have worked on various projects, ranging from small websites to large web applications. My experience includes both front-end and back-end development, and I have a strong understanding of the full web development stack.",
+    "Curiosity pushed me to explore various fields, from electrical engineering to international banking and finance. This diverse educational background has equipped me with a unique perspective and a versatile skill set that I apply to my work in web development and cloud computing.",
   items: [
     {
-      institution: "Online Course Platform",
-      degree: "Full Stack Web Development",
-      duration: "2023",
+      institution: "Technical University of Cluj-Napoca",
+      degree: "Bachelor in Electrical Engineering",
+      duration: "2015 - 2019",
     },
     {
-      institution: "Codecademy",
-      degree: "Front-end Track",
+      institution: "Robert Kennedy College",
+      degree: "Masters in International Banking and Finance",
+      duration: "2023 - Present",
+    },
+    {
+      institution: "Amazon Web Services",
+      degree: "Certified Cloud Practitioner",
       duration: "2022",
-    },
-    {
-      institution: "Online Course",
-      degree: "Programming Fundamentals",
-      duration: "2020 - 2021",
-    },
-    {
-      institution: "Tech Institute",
-      degree: "Certified Web Developer",
-      duration: "2019",
-    },
-    {
-      institution: "Design School",
-      degree: "Graphic Design",
-      duration: "2016-2018",
-    },
-    {
-      institution: "Community College",
-      degree: "Associate Degree in Computer Science",
-      duration: "2014-2016",
     },
   ],
 };
@@ -135,7 +103,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "I have a diverse skill set that includes both front-end and back-end technologies. I am proficient in HTML, CSS, JavaScript, and various frameworks and libraries such as React, Next.js, and Node.js. I also have experience with design tools like Figma.",
+    "I am a versatile engineer with a strong foundation in modern web development and data technologies. Proficient in HTML, CSS, and JavaScript, I build dynamic and responsive user interfaces using React and Next.js, enhanced by Tailwind CSS for efficient styling. On the backend, I leverage Node.js for scalable server-side solutions and deploy applications using AWS for cloud infrastructure and Docker for containerization. I also have expertise in Python for scripting and data processing, alongside advanced proficiency in KDB for high-performance data analytics. Additionally, I am skilled in Excel for data analysis and visualization, enabling me to deliver comprehensive, end-to-end solutions across web development, cloud deployment, and data management.",
   skillsList: [
     {
       icon: <FaHtml5 />,
@@ -166,8 +134,24 @@ const skills = {
       name: "Node.js",
     },
     {
-      icon: <FaFigma />,
-      name: "Figma",
+      icon: <DiAws />,
+      name: "AWS",
+    },
+    {
+      icon: <DiPython />,
+      name: "Python",
+    },
+    {
+      icon: <DiDocker />,
+      name: "Docker",
+    },
+    {
+      icon: <FaFileExcel />,
+      name: "Excel",
+    },
+    {
+      icon: <img src="/assets/kdb-bw.png" alt="KDB Logo" style={{ width: "1em", height: "1em" }} />, // Adjust size to match other icons
+      name: "KDB",
     },
   ],
 };
@@ -254,7 +238,7 @@ const Resume = () => {
                           className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-accent">{item.duration}</span>
-                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left mb-8">
                             {item.degree}
                           </h3>
                           <div className="flex items-center gap-3">
