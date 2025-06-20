@@ -21,36 +21,25 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
-    category: "frontend",
-    title: "project 1",
+    category: "fullstack",
+    title: "Neva Apartments",
     description:
-      "A personal portfolio website showcasing my skills and projects.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+      "An app built for a brand which owns properties offered for Airbnb. Built with Typescript, Next.js, Tailwind CSS and backend with SQL ",
+    stack: [{ name: "Typescript" }, { name: "Tailwind CSS" }, { name: "Prisma" }],
+    image: "/assets/work/neva_apartments.png",
+    live: "https://neva-apartments.org/",
+    github: "https://github.com/comanico/staysavvy",
   },
   {
     num: "02",
     category: "fullstack",
-    title: "project 2",
+    title: "Investo Bar",
     description:
-      "A personal portfolio website showcasing my skills and projects.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "Node.js" }],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: "03",
-    category: "frontend",
-    title: "project 3",
-    description:
-      "A personal portfolio website showcasing my skills and projects.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
+      "A concept where the price of drinks changes based on the quantity it was sold. Built with the purpose of simulating financial markets for educational purposes while also offering a great deal at the bar. Built with TSX and Tailwind CSS for the frontend, while the backend is using a Python observer to update the prices of the drinks.",
+    stack: [{ name: "Typescript" }, { name: "Tailwind CSS" }, { name: "Python" }],
+    image: "/assets/work/investo_bar.png",
+    live: "https://investo-bar.vercel.app/",
+    github: "https://github.com/comanico/investo-bar",
   },
 ];
 
@@ -83,7 +72,7 @@ const Work = () => {
               </div>
               {/* project category */}
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {project.title} project
               </h2>
               {/* project description */}
               <p className="text-white/60">{project.description}</p>

@@ -46,7 +46,7 @@ const about = {
 
 // experience data
 const experience = {
-  icon: "/assets/resume/badge.svg",
+  icon: "",
   title: "My experience",
   description:
     "With a background in electrical engineering, I bring a strong foundation in networking and a proven ability to tackle complex technical and financial challenges. My experience spans startups to top-tier firms like Morgan Stanley, where I delivered solutions ranging from optimized Excel-based financial models to scalable, containerized applications using modern DevOps practices. My diverse skill set and adaptability enable me to drive impactful results in dynamic, high-stakes environments.",
@@ -76,7 +76,7 @@ const experience = {
 
 // education data
 const education = {
-  icon: "/assets/resume/cap.svg",
+  icon: "",
   title: "My education",
   description:
     "Curiosity pushed me to explore various fields, from electrical engineering to international banking and finance. This diverse educational background has equipped me with a unique perspective and a versatile skill set that I apply to my work in web development and cloud computing.",
