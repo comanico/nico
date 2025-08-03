@@ -13,8 +13,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Nico | Engineer & Designer",
-  description: "Get your next idea started",
+  title: "Nico",
+  description: "Engineer | Designer | Investor",
 };
 
 export default function RootLayout({ children }) {
