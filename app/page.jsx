@@ -16,21 +16,24 @@ const Home = () => {
           {/* text */}
           <div className="text-center xl:text-left order-2 xl:order-none">
             <h1 className="h1 mb-6">
-              Hello I&apos;m <br /> <span className="text-accent">Alexandru Nicolae</span>
+              Hello I&apos;m <br />{" "}
+              <span className="text-accent">Alexandru Nicolae</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I excel at crafting elegant digital experiences and proficient in various programming languages and technologies.
+              I excel at crafting elegant digital experiences and proficient in
+              various programming languages and technologies.
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                className="uppercase flex items-center gap-2"
-                size="lg"
+              <a
+                className="uppercase flex items-center gap-2 border border-accent rounded px-4 py-2 text-lg hover:bg-accent hover:text-primary transition-all duration-500"
+                href="/assets/resume/Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span>Download CV</span>
                 <FiDownload className="text-xl" />
-              </Button>
+              </a>
               <div className="mb-8 xl:mb-0">
                 <Social
                   containerStyles="flex gap-6"
