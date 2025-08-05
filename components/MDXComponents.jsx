@@ -1,0 +1,18 @@
+import Image from "next/image";
+import * as runtime from "react/jsx-runtime";
+import { Callout } from "./Callout";
+
+const useMDXComponent = (code) => {
+  const fn = new Function(code);
+  return fn({ ...runtime }).default;
+};
+
+const components = {
+  Image,
+  Callout,
+};
+
+export function MDXContent({ code }) {
+  const Component = useMDXComponent(code);
+  return <Component components={components} />;
+}

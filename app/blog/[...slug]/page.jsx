@@ -1,5 +1,5 @@
 import { posts } from "#site/content";
-import { MDXContent } from "@/components/mdx-components";
+import { MDXContent } from "@/components/MDXComponents";
 import { notFound } from "next/navigation";
 import "@/styles/mdx.css";
 import { siteConfig } from "@/config/site";
