@@ -48,7 +48,9 @@ export async function generateMetadata({ params }) {
 }
 
 export async function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
+  return posts.map((post) => ({ 
+    slug: post.slugAsParams.split("/") 
+  }));
 }
 
 export default async function PostPage({ params }) {
