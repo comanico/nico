@@ -31,7 +31,7 @@ export default defineConfig({
     assets: "public/static", // Output directory for assets
     base: "/static/", // Base path for assets
     name: "[name]-[hash:6].[ext]", // Asset naming convention
-    clean: true, // Clean output directory before build
+    clean: false, // Do not clean to preserve committed images
   },
   collections: {
     posts,
