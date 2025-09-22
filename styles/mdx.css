@@ -41,3 +41,53 @@
 .subheading-anchor {
     @apply no-underline hover:underline
 }
+
+/* MDX Typography overrides */
+.prose h1 {
+  @apply text-3xl md:text-4xl font-semibold mt-8 mb-4;
+}
+
+.prose h2 {
+  @apply text-2xl md:text-3xl font-semibold mt-6 mb-3;
+}
+
+.prose h3 {
+  @apply text-xl md:text-2xl font-semibold mt-5 mb-2;
+}
+
+.prose h4 {
+  @apply text-lg md:text-xl font-semibold mt-4 mb-2;
+}
+
+/* Preserve author-intended line breaks inside paragraphs */
+.prose p {
+  @apply whitespace-pre-wrap leading-loose my-4;
+}
+
+/* Make links underlined and accented */
+.prose a {
+  @apply underline underline-offset-4 text-accent hover:text-accent-hover;
+}
+
+/* Lists: ensure bullets/numbers and indentation */
+.prose ul {
+  list-style-type: disc;
+  @apply pl-6 my-4;
+}
+
+.prose ol {
+  list-style-type: decimal;
+  @apply pl-6 my-4;
+}
+
+.prose li {
+  @apply my-1;
+}
+
+.prose ul > li::marker {
+  color: #fff;
+}
+
+.prose ol > li::marker {
+  color: #fff;
+}
