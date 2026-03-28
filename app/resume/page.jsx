@@ -150,6 +150,7 @@ const skills = {
       name: "Excel",
     },
     {
+      // eslint-disable-next-line @next/next/no-img-element
       icon: <img src="/assets/kdb-bw.png" alt="KDB Logo" style={{ width: "1em", height: "1em" }} />, // Adjust size to match other icons
       name: "KDB",
     },
