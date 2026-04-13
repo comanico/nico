@@ -1,0 +1,104 @@
+---
+slug: gamifying-stock-market
+title: Gamifying the Stock Market
+description: Turning a bar into a living financial market to make economics fun and accessible
+date: 2026-04-05T12:00:00Z
+published: true
+tags: [fullstack, typescript, aws, portfolio, startup, stock market, finance, financial education]
+---
+
+# Idea
+
+The idea was born when one of our group discovered "Stock Market Bars" in Germany — places where drink prices fluctuate based on real-time demand, just like stocks.
+
+We saw a unique opportunity: **bring the stock market to Romania** in a familiar, social setting.  
+Instead of complex charts and intimidating terminology, people would learn financial concepts while having a beer with friends.
+
+### How It Works
+
+1. The bar offers a fixed set of products (beer, wine, soft drinks, etc.)
+2. Prices change dynamically every 15 minutes based on actual purchases
+3. Popular items become more expensive, less popular ones get cheaper
+4. This creates a real supply-and-demand environment in a relaxed social setting
+
+# Goal
+
+[Financial education in Romania ranks among the lowest in the EU](https://europa.eu/eurobarometer/surveys/detail/2953).  
+
+Our mission is to change that — not through lectures, but through **experience**.  
+By turning a bar into a living market, people can actively participate, make decisions, see consequences, and naturally understand core economic principles like supply and demand, market sentiment, risk, and crisis management.
+
+Beyond the bar itself, we plan to host educational events and talks where guests can learn about real investing in an engaging way.
+
+# Technology
+
+The system is built with a modern, scalable full-stack architecture.
+
+![Investo Bar System Design](InvestoBar.png)
+
+- **Frontend**: TypeScript/React application that displays live prices and allows authorized users to manage the system.
+- **Backend**: Python pricing engine that calculates new prices using an Exponential Moving Average (EMA) model.
+- **Database**: MySQL for storing raw sales data.
+- **Storage**: S3 for price history and the final aggregated `live_prices.json` consumed by the frontend.
+- **Infrastructure**: Deployed on Railway with separate services for the UI and automated pricing cycles.
+
+# Algorithm
+
+## Core Concept
+
+Traditional stock markets move at high frequency. In a bar, purchase frequency is much lower and more social.  
+To make the experience educational and enjoyable, we update prices **every 15 minutes** based on actual demand.
+
+## Key Variables
+
+### Base Parameters
+- Base Prices and Bottle Costs
+- Risk controls: Alpha per Share, Absolute Impact Weight, Depth, Maximum Change, Rounding (to 0.50), Soft Floor Delta
+
+### EMA & Smoothing
+- Lambda & Lambda per Share
+- Warmup Period
+- Lambda Ramp
+
+### Crisis Management
+- Crisis Mode (`spike_only`)
+- Spike Multiplier
+
+## State Variables
+
+The engine maintains memory of market behavior:
+- Current Prices
+- EMA Shares & EMA Volumes
+- Warmup Count
+- Crisis Triggered flag + Crisis Index
+- Cumulative Profit & Cumulative Sold
+- Event Label (`"CRISIS"`, `"SMOOTHED"`, etc.)
+
+## Algorithm Engine
+
+### 1. Exponential Moving Average (EMA)
+
+We use two EMAs to simulate realistic market movement:
+
+- **EMA on Volumes** — tracks recent sales volume of each product
+- **EMA on Shares** — measures relative popularity among products
+
+**Formula:**
+```math
+EMA_t = α × Value_t + (1 - α) × EMA_t-1
+```
+During the warmup phase the algorithm learns the market gradually.
+After warmup, it becomes more responsive to changes in demand.
+
+### 2. Price Calculation
+For each drink, the new price is calculated based on:
+
+Current vs Expected market share (relative popularity)
+Current vs Expected volume (sales surprise)
+Dynamic depth and absolute impact weight (to prevent extreme swings)
+
+The final price is then clipped, rounded to the nearest 0.50, and protected by a soft floor.
+
+### 3. Crisis Detection
+The system currently operates in spike_only mode.
+If any product’s price exceeds Base Price × Spike Multiplier, a crisis is triggered and all prices are reset to base levels to restore market balance and prevent unrealistic spikes.
