@@ -12,22 +12,24 @@ tags: [fullstack, typescript, aws, portfolio, startup, stock market, finance, fi
 The idea was born when one of our group discovered "Stock Market Bars" in Germany — places where drink prices fluctuate based on real-time demand, just like stocks.
 
 We saw a unique opportunity: **bring the stock market to Romania** in a familiar, social setting.  
-Instead of complex charts and intimidating terminology, people would learn financial concepts while having a beer with friends.
+Instead of complex charts and intimidating terminology, people would learn financial concepts while having a beer with friends. Popular drinks get more expensive. Less popular ones become cheaper. Every 15 minutes the market updates, creating a living, breathing demonstration of supply and demand.
 
 ### How It Works
 
 1. The bar offers a fixed set of products (beer, wine, soft drinks, etc.)
 2. Prices change dynamically every 15 minutes based on actual purchases
 3. Popular items become more expensive, less popular ones get cheaper
-4. This creates a real supply-and-demand environment in a relaxed social setting
+4. This creates a real supply-and-demand environment in a relaxed social context
+
+# Why Now
+
+[Financial education in Romania ranks among the lowest in the EU](https://europa.eu/eurobarometer/surveys/detail/2953). 
+[Whilst the number of investors are growing year-over-year](https://startupcafe.ro/record-de-investitori-la-bursa-de-valori-bucuresti-26-intr-un-an-de-ce-multi-romani-aleg-insa-titlurile-de-stat-95922), the total still shows that majority of people are hesitant when it comes to investing.
 
 # Goal
 
-[Financial education in Romania ranks among the lowest in the EU](https://europa.eu/eurobarometer/surveys/detail/2953).  
-
-Our mission is to change that — not through lectures, but through **experience**.  
+We are not building another bar, rather Romania's first experential financial education platform.
 By turning a bar into a living market, people can actively participate, make decisions, see consequences, and naturally understand core economic principles like supply and demand, market sentiment, risk, and crisis management.
-
 Beyond the bar itself, we plan to host educational events and talks where guests can learn about real investing in an engaging way.
 
 # Technology
@@ -46,59 +48,26 @@ The system is built with a modern, scalable full-stack architecture.
 
 ## Core Concept
 
-Traditional stock markets move at high frequency. In a bar, purchase frequency is much lower and more social.  
+Traditional stock markets move at high frequency. In a bar, purchase frequency is much lower.  
 To make the experience educational and enjoyable, we update prices **every 15 minutes** based on actual demand.
-
-## Key Variables
-
-### Base Parameters
-- Base Prices and Bottle Costs
-- Risk controls: Alpha per Share, Absolute Impact Weight, Depth, Maximum Change, Rounding (to 0.50), Soft Floor Delta
-
-### EMA & Smoothing
-- Lambda & Lambda per Share
-- Warmup Period
-- Lambda Ramp
-
-### Crisis Management
-- Crisis Mode (`spike_only`)
-- Spike Multiplier
-
-## State Variables
-
-The engine maintains memory of market behavior:
-- Current Prices
-- EMA Shares & EMA Volumes
-- Warmup Count
-- Crisis Triggered flag + Crisis Index
-- Cumulative Profit & Cumulative Sold
-- Event Label (`"CRISIS"`, `"SMOOTHED"`, etc.)
 
 ## Algorithm Engine
 
 ### 1. Exponential Moving Average (EMA)
 
-We use two EMAs to simulate realistic market movement:
-
 - **EMA on Volumes** — tracks recent sales volume of each product
 - **EMA on Shares** — measures relative popularity among products
+- Popular items become more expensive. Less popular items get cheaper.
+- Built-in safeguards prevent extreme swings and trigger a **market reset** (crisis mode) if any product becomes unreasonably expensive.
 
-**Formula:**
-```math
-EMA_t = α × Value_t + (1 - α) × EMA_t-1
-```
-During the warmup phase the algorithm learns the market gradually.
-After warmup, it becomes more responsive to changes in demand.
+This creates a real, dynamic market that customers can feel and understand immediately.
 
-### 2. Price Calculation
-For each drink, the new price is calculated based on:
+### 2. Crisis Detection
+If any product’s price exceeds a sfae threshold (currently 2x base price), a crisis is triggered and all prices are reset to base levels to restore market balance and prevent unrealistic spikes.
 
-Current vs Expected market share (relative popularity)
-Current vs Expected volume (sales surprise)
-Dynamic depth and absolute impact weight (to prevent extreme swings)
+### Final Closing
 
-The final price is then clipped, rounded to the nearest 0.50, and protected by a soft floor.
+**InvestoBar is more than a bar.**
 
-### 3. Crisis Detection
-The system currently operates in spike_only mode.
-If any product’s price exceeds Base Price × Spike Multiplier, a crisis is triggered and all prices are reset to base levels to restore market balance and prevent unrealistic spikes.
+It is a new way to teach finance — one beer at a time.  
+By combining entertainment, real economics, and technology, we are creating a meaningful social impact in a country that urgently needs better financial education.
