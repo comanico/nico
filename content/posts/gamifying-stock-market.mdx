@@ -48,8 +48,9 @@ The system is built with a modern, scalable full-stack architecture.
 
 ## Core Concept
 
-Traditional stock markets move at high frequency. In a bar, purchase frequency is much lower.  
-To make the experience educational and enjoyable, we update prices **every 15 minutes** based on actual demand.
+Traditional stock markets move at high frequency. 
+In a bar, purchase frequency is much lower, which is why we embeded a popular algorith called Exponential Moving Average (EMA), to have the bar act like an actual stock market.
+EMA helps give more importance to recent sales, rather than old ones. Thus the pricing engine will be more responsive to sudden changes in client behavior. 
 
 ## Algorithm Engine
 
